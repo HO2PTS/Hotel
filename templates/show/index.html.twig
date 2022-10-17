@@ -1,0 +1,12 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello ShowController!{% endblock %}
+
+{% block body %}
+<div class="container">
+    <img src="{{ chambre.photo }}" alt=""> 
+    <h1 class="text-light text-center"> {{ chambre.titre }} </h1>
+    <p  class="text-light"> {{ chambre.descriptionlongue }} </p>
+</div>
+{% endblock %}
+

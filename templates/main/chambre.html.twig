@@ -1,0 +1,44 @@
+{% extends 'base.html.twig' %}
+
+{% block title %} Chambres du Continetal {% endblock %}
+
+{% block body %}
+<div class="container">
+{% for chambre in chambres %}
+    {% if chambre.id is odd %}
+    <br>
+    <div class="d-flex align-items-center mt-4">
+        <div class="flex-shrink-0">
+            <img src="{{ chambre.photo }}" style="height: 25vh; object-fit: cover;" class="w-75">
+        </div>
+        <div class="flex-grow-1 ms-3">
+        <h5 class="text-light"> {{ chambre.titre }} </h5>
+           <p class="text-light"> {{ chambre.descriptioncourte }} </p>
+        <a href="{{ path('app_show', {
+            id: chambre.id
+        }) }}" class="btn btn-primary"> Réserver </a>
+        </div>
+        
+    </div>
+    <br>
+    <hr style="color: white;"> 
+    {% else %}
+    <div class="d-flex align-items-center mt-4">
+        
+        <div class="flex-grow-1 ms-3">
+        <h5 class="text-light"> {{ chambre.titre }} </h5>
+           <p class="text-light"> {{ chambre.descriptioncourte }} </p>
+        <a href="{{ path('app_show', {
+            id: chambre.id
+        }) }}" class="btn btn-primary"> Réserver </a>
+        </div>
+        <div class="flex-shrink-0">
+            <img src="{{ chambre.photo }}" style="height: 25vh; object-fit: cover;" class="w-75">
+        </div>
+    </div>
+    <br>
+    <hr style="color: white;">  
+    {% endif %}
+{% endfor %}
+</div>
+{% endblock %}
