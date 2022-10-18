@@ -1,0 +1,15 @@
+{% block _User_roles %}
+{# nom du block : _NomDeLEntité_NomDELaPropriété #}
+
+{% for role in field.value %}
+
+{% if role == 'ROLE_USER' %}
+Membre
+
+{% elseif role == 'ROLE_ADMIN' %}
+Administrateur
+{% endif %}
+
+    
+{% endfor %}
+{% endblock %}

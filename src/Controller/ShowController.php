@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use DateTime;
 use App\Entity\Chambre;
 use App\Entity\Commande;
 use App\Form\CommandeType;
@@ -16,58 +17,44 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 class ShowController extends AbstractController
 {
     #[Route('/show/{id}', name: 'app_show')]
-    public function chambre($id, ChambreRepository $repo, Request $globals, EntityManagerInterface $manager): Response
+    public function chambre($id, ChambreRepository $repo, Request $rq, EntityManagerInterface $manager, Commande $commande = null): Response
     {
         $chambre = $repo->find($id);
-        return $this->render('show/index.html.twig', [
+        $chambres = $repo->findAll();
+        $commande = new Commande;
+            
+        $form = $this->createForm(CommandeType::class, $commande);
+        $form->handleRequest($rq);
+        
+        if ($form->isSubmitted() && $form->isValid()) {
+            
+            $commande->setDateEnregistrement(new DateTime);
+            $commande->setIdChambre($chambre);
+            $depart = $commande->getDateArrivee();
+            
+            if ($depart->diff($commande->getDateDepart())->invert == 1) {
+                $this->addFlash('danger', 'Une période de temps ne peut pas être négative.');
+                return $this->redirectToRoute('app_show', [
+                    'id' => $chambre->getId()
+                ]);
+            }
+            $jours = $depart->diff($commande->getDateDepart())->days;
+            $prixTotal = ($commande->getIdChambre()->getPrixJournalier() * $jours) + $commande->getIdChambre()->getPrixJournalier();
+            // récupère le prix total (sans la dernière addition, il manque un jour à payer)
+            
+            $commande->setPrixTotal($prixTotal);
+            
+            
+            $manager->persist($commande);
+            $manager->flush();
+            $this->addFlash('success', 'Votre commande a bien été enregistrée !');
+            return $this->redirectToRoute('app_main');
+            }
+            
+        return $this->renderForm('show/index.html.twig', [
+            'form' => $form,
             'chambre' => $chambre
         ]);
     }
-    // public function show($id, CommandeRepository $repo, Request $globals, EntityManagerInterface $manager, Chambre $chambre)  
-    // {
-    //     $vehicules = $repo->find($id);
-
-    //     $commande = new Commande;
-    //     $form = $this->createForm(CommandeType::class, $commande);
-
-    //     $form->handleRequest($globals);
-    //     if($form->isSubmitted() && $form->isValid())
-    //     {
-    //         $table = $globals->request->get("commande_post");
-    //         $tableOrigin = $table["date_heure_depart"]['date'];
-    //         $origin = $tableOrigin["year"] . "-" . $tableOrigin["month"] . "-" . $tableOrigin["day"];
-    //         $origin = date_create($origin);
-    //         $tableTarget = $table["date_heure_fin"]['date'];
-    //         $target = $tableTarget["year"] . "-" . $tableTarget["month"] . "-" . $tableTarget["day"];
-    //         $target = date_create($target);
-    //         $commande->setDateEnregistrement(new \DateTime);
-    //         $interval = date_diff($origin, $target);;
-    //         $prix = $chambre->getPrixJournalier();
-    //         $interval = ($interval->d) + ($interval->m) *30 + ($interval->y) *364 ;
-    //         $prix = $prix * $interval;
-    //         $commande->setPrixTotal($prix);
-    //         // $commande->setIdVehicule($vehicule);
-    //         // $commande->setIdMembre($this->getUser());
-    //         $manager->persist($commande);
-    //         $manager->flush();
-    //         $this->addFlash("success", "Opération réalisé avec succès"); 
-
-    //         return $this->redirectToRoute('app_agence', [
-    //             'id' => $commande->getId(),
-    //         ]);
-    //     } 
-
-    //     // find() permet de récupérer un article en fonction de son id
-
-    //     return $this->renderForm('agence/show.html.twig', [
-    //         'item' => $vehicules,
-    //         'form' => $form
-    //     ]);
-    // }
-    
 }
-
-
-
-
-// find() permet de récupérer un article en fonction de son id
+       

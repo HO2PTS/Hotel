@@ -7,6 +7,8 @@ use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\Security\Core\User\User;
 use EasyCorp\Bundle\EasyAdminBundle\Field\IdField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
+use EasyCorp\Bundle\EasyAdminBundle\Field\ChoiceField;
+use EasyCorp\Bundle\EasyAdminBundle\Field\DateTimeField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\CollectionField;
 use Symfony\Component\Form\Extension\Core\Type\PasswordType;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
@@ -39,6 +41,9 @@ class MembreCrudController extends AbstractCrudController
             TextField::new('email'),
             TextField::new('password', 'Mot de passe')->setFormType(PasswordType::class)->onlyWhenCreating(),
             CollectionField::new('roles')->setTemplatePath('admin/field/roles.html.twig'),
+            ChoiceField::new('civilite')->setChoices(['H'=>'homme', "F"=>"femme"]),
+            DateTimeField::new('dateEnregistrement')->setFormat('d/M/Y  à H:m:s'),
+
         ];
     }
     public function persistEntity(EntityManagerInterface $entityManager, $entityInstance): void

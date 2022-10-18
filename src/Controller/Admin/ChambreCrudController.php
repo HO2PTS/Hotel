@@ -26,7 +26,7 @@ class ChambreCrudController extends AbstractCrudController
             IdField::new('id')->hideOnForm(),
             TextField::new('titre'),
             TextareaField::new('descriptionCourte'),
-            TextareaField::new('descriptionLongue'),
+            TextareaField::new('descriptionLongue')->setMaxLength(20),
             TextField::new('photo'),
             MoneyField::new('prixJournalier')->setCurrency('EUR'),
             DateTimeField::new('dateEnregistrement')->setFormat('d/M/Y  à H:m:s')

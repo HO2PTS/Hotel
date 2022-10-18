@@ -39,8 +39,9 @@ class Commande
     #[ORM\Column(length: 255)]
     private ?string $email = null;
 
-    #[ORM\Column(length: 255)]
-    private ?string $date_enregistrement = null;
+    #[ORM\Column(type: Types::DATETIME_MUTABLE)]
+    private ?\DateTimeInterface $date_enregistrement = null;
+
 
     public function getId(): ?int
     {
@@ -143,15 +144,16 @@ class Commande
         return $this;
     }
 
-    public function getDateEnregistrement(): ?string
+    public function getDateEnregistrement(): ?\DateTimeInterface
     {
         return $this->date_enregistrement;
     }
 
-    public function setDateEnregistrement(string $date_enregistrement): self
+    public function setDateEnregistrement(\DateTimeInterface $date_enregistrement): self
     {
         $this->date_enregistrement = $date_enregistrement;
 
         return $this;
     }
+
 }

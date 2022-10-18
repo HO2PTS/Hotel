@@ -33,14 +33,14 @@ class CommandeCrudController extends AbstractCrudController
         return [
             IdField::new('id')->hideOnForm(),
             IdField::new('idMembre'),
-            DateField::new('dateArrivee')->setFormat('d/M/Y  à H:m:s'),
-            DateField::new('dateDepart')->setFormat('d/M/Y  à H:m:s'),
+            DateField::new('dateArrivee')->setFormat('d/M/Y'),
+            DateField::new('dateDepart')->setFormat('d/M/Y'),
             TextField::new('nom', 'Nom'),
             TextField::new('prenom', 'Prénom'),
             MoneyField::new('prixTotal')->setCurrency('EUR'),
             TextField::new('telephone', 'Téléphone'),
             TextField::new('email', 'Email'),
-            DateTimeField::new('dateEnregistrement')->setFormat('d/M/Y  à H:m:s')
+            DateTimeField::new('dateEnregistrement')->setFormat('d/M/Y  à H:m:s')->hideOnForm()
         ];
     }
     
