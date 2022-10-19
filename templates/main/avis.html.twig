@@ -1,0 +1,114 @@
+{% extends "base.html.twig" %}
+
+{% block title %}Nos Commentaires{% endblock %}
+
+{% block body %}
+<div class="container mt-5">
+<form action="{{path('avis_filtre')}}" method='post'>
+<div class="input-group">
+  <select class="form-select" id="categorie" name="categorie" aria-label="Example select with button addon">
+    <option selected disabled>Choose...</option>
+    <option value="Hotel">Hôtel</option>
+    <option value="Chambres">Chambres</option>
+    <option value="Restaurant">Restaurant</option>
+    <option value="Spa">Spas</option>
+  </select>
+  <button class="btn btn-secondary" type="submit">filtrer</button>
+</div>
+</form>
+</div>
+{% if categorie != null %}
+{% for comment in filtre %}
+    <div class="comment container text-light  mt-3">
+        <div class="row">
+            <h4 class="col-md-6 text-light"> Categorie : {{ comment.categorie }} </h4>
+            <h4 class="col-md-6 text-light"> Note : {{ comment.note }} /5 </h4>
+        </div>
+        <div class="row">
+            <div class="col-md-36 text-light">
+                Prénom de l'utilisateur : {{ comment.prenom }}
+            </div>
+            <div class="col-md-6 text-light">
+                Nom de l'Utilisateur : {{ comment.nom }}
+            </div>
+            <br>
+            <br>
+            <div class="col-md-9 text-light">
+               Avis: {{ comment.content|raw }}
+            </div>
+        </div>
+        <div class="row">
+        <div class="col-md-12 text-light text-center"> <i> ({{ comment.createdAt|date('d/m/Y à H:i:s') }}) </i>  </div>
+        </div>
+        <hr class="text-light">
+    </div>
+
+{% endfor %}
+{% else %}
+{% for comment in avis %}
+
+    <div class="comment container text-light  mt-3">
+        <div class="row">
+            <h4 class="col-md-6 text-light"> Categorie : {{ comment.categorie }} </h4>
+            <h4 class="col-md-6 text-light"> Note : {{ comment.note }} /5 </h4>
+        </div>
+        <div class="row">
+            <div class="col-md-36 text-light">
+                Prénom de l'utilisateur : {{ comment.prenom }}
+            </div>
+            <div class="col-md-6 text-light">
+                Nom de l'Utilisateur : {{ comment.nom }}
+            </div>
+            <br>
+            <br>
+            <div class="col-md-9 text-light">
+               Avis: {{ comment.content|raw }}
+            </div>
+        </div>
+        <div class="row">
+        <div class="col-md-12 text-light text-center"> <i> ({{ comment.createdAt|date('d/m/Y à H:i:s') }}) </i>  </div>
+        </div>
+        <hr class="text-light">
+    </div>
+    
+{% endfor %}
+{% endif %}
+<div class="container mt-3 text-light">
+
+    {{ form_start(form, {
+        attr: {novalidate: 'novalidate'}
+    }) }}
+    <div class="row">
+        <div class="col-md-8">
+            {{ form_row(form.categorie) }}
+        </div>
+        <div class="col-md-4"> 
+        {{ form_row(form.note) }}
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6">
+        {{ form_row(form.nom) }}
+        </div>
+        <div class="col-md-6">
+        {{ form_row(form.prenom) }}
+        </div>
+    </div>
+    <div class="row">
+    <div class="col-md-12">
+        {{ form_row(form.email) }}
+    </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            {{ form_row(form.content, {
+                attr: {
+                    placeholder: 'Contenue de votre commentaires'
+                }
+            }) }}
+        </div>
+    </div>
+    <button type="submit" class="btn btn-primary"> Ajouter votre commentaires </button>
+    {{ form_end(form) }}
+</div>
+{% endblock %}

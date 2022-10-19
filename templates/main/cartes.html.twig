@@ -1,0 +1,152 @@
+{% extends "base.html.twig" %}
+
+{% block title %}Notre Carte{% endblock %}
+
+{% block body %}
+<div class="container my-5">
+
+    
+  
+<ul class="nav nav-tabs" role="tablist">
+  <li class="nav-item" role="presentation">
+    <a class="nav-link text-light  bg-dark" data-bs-toggle="tab" href="#ptitdej" aria-selected="false" role="tab" tabindex="-1">Petit Déjeuner</a>
+  </li>
+  <li class="nav-item" role="presentation">
+    <a class="nav-link text-light bg-dark active text-secondary" data-bs-toggle="tab" href="#dej" aria-selected="true" role="tab">Déjeuner / Lunch</a>
+  </li>
+  
+</ul>
+<div id="myTabContent" class="tab-content bg-dark">
+  <div class="tab-pane fade" id="ptitdej" role="tabpanel">
+    <img src="https://www.hotel-strasbourg.com/bases/service_image/grande/1/YTR-6762.jpg" class="w-100" style="max-height:25vh; object-fit:cover;" alt="hugo le boloss">
+        <div class="accordion" id="accordionExample">
+  <div class="accordion-item bg-dark text-light">
+    <h2 class="accordion-header" id="headingOne">
+      <button class="accordion-button collapsed text-light bg-dark" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+        Le petit-déjeuner à la carte
+      </button>
+    </h2>
+    <div id="collapseOne" class="accordion-collapse collapse text-light bg-dark" aria-labelledby="headingOne" data-bs-parent="#accordionExample" style="">
+      <div class="accordion-body">
+        <div class="row"><div class="col-md-10">Œufs Bénédicte traditionnels</div><div class="col-md-2 text-end">28€</div></div>
+        <div class="row"><div class="col-md-10">Œufs Bénédicte au saumon fumé</div><div class="col-md-2 text-end">32€</div></div>
+        <div class="row"><div class="col-md-10">Œuf bio « Prestige » au homard</div><div class="col-md-2 text-end">68€</div></div>
+        <div class="row"><div class="col-md-10">Œufs bio brouillés à la truffe noire</div><div class="col-md-2 text-end">59€</div></div>
+        <div class="row"><div class="col-md-10">Omelette au homard bleu</div><div class="col-md-2 text-end">90€</div></div>
+        <div class="row"><div class="col-md-10">Jambon ibérique Bellota</div><div class="col-md-2 text-end">55€</div></div>
+        <div class="row"><div class="col-md-10">Avocat frais émincé</div><div class="col-md-2 text-end">12€</div></div>
+        <div class="row"><div class="col-md-10">Assiette de fruits rouges</div><div class="col-md-2 text-end">38€</div></div>
+        <div class="row"><div class="col-md-10">Crêpe, gauffre, pancake avec sucre, confiture ou sirop d’érable</div><div class="col-md-2 text-end">22€</div></div>
+        <div class="row"><div class="col-md-10">Pain perdu traditionnel</div><div class="col-md-2 text-end">25€</div></div>
+        <div class="row"><div class="col-md-10">Corbeille de pain sans gluten</div><div class="col-md-2 text-end">20€</div></div>
+      </div>
+    </div>
+  </div>
+  <div class="accordion-item">
+    <h2 class="accordion-header" id="headingTwo">
+      <button class="accordion-button collapsed text-light bg-dark" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+        Les boissons chaudes
+      </button>
+    </h2>
+    <div id="collapseTwo" class="accordion-collapse collapse text-light bg-dark" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
+      <div class="accordion-body">
+        <div class="row"><div class="col-md-10">Espresso, Décaféiné</div><div class="col-md-2 text-end">12€</div></div>
+        <div class="row"><div class="col-md-10">Café américain</div><div class="col-md-2 text-end">16€</div></div>
+        <div class="row"><div class="col-md-10">Cappuccino, Café latte, Double espresso</div><div class="col-md-2 text-end">16€</div></div>
+        <div class="row"><div class="col-md-10">Thé, Infusion</div><div class="col-md-2 text-end">15€</div></div>
+        <div class="row"><div class="col-md-10">Chocolat chaud</div><div class="col-md-2 text-end">18€</div></div>
+        
+      </div>
+    </div>
+  </div>
+  <div class="accordion-item">
+    <h2 class="accordion-header" id="headingThree">
+      <button class="accordion-button collapsed text-light bg-dark" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+        Les boissons fraîches
+      </button>
+    </h2>
+    <div id="collapseThree" class="accordion-collapse collapse text-light bg-dark" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
+      <div class="accordion-body">
+         <div class="row"><div class="col-md-10">Jus de fruits frais 25cl - Orange, pamplemousse, citron</div><div class="col-md-2 text-end">16€</div></div>
+        <div class="row"><div class="col-md-10">Champagne Barons de Rothschild Brut Réserve Ritz</div><div class="col-md-2 text-end">28€</div></div>
+        <div class="row"><div class="col-md-10">Champagne Barons de Rothschild Blanc de blancs Réserve Ritz</div><div class="col-md-2 text-end">35€</div></div>
+        <div class="row"><div class="col-md-10">Champagne Barons de Rothschild Rosé Réserve Ritz</div><div class="col-md-2 text-end">35€</div></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+  </div>
+  <div class="tab-pane fade active show" id="dej" role="tabpanel">
+    
+    <img src="https://www.hotel-strasbourg.com/bases/service_image/grande/1/YTR-6762.jpg" class="w-100" style="max-height:25vh; object-fit:cover;" alt="hugo le boloss">
+        <div class="accordion" id="accordionExample">
+  <div class="accordion-item">
+    <h2 class="accordion-header" id="headingOne">
+      <button class="accordion-button collapsed text-light bg-dark" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+        Lunch / Entrées
+      </button>
+    </h2>
+    <div id="collapseOne" class="accordion-collapse collapse text-light bg-dark" aria-labelledby="headingOne" data-bs-parent="#accordionExample" style="">
+      <div class="accordion-body">
+        <h6 class="text-light">Lunch</h6>
+        <div class="row"><div class="col-md-10">Club sandwich à la volaille - Tomates, oeufs bios, laitue, bacon et pommes frites maison</div><div class="col-md-2 text-end">55€</div></div>
+        <div class="row"><div class="col-md-10">Club sandwich au homard bleu - Compotée d’oignon, pousses d’épinards, tomates confites et pommes frites maison</div><div class="col-md-2 text-end">110€</div></div>
+        <div class="row"><div class="col-md-10">Bœuf en tartare au couteau - pommes frites maison et cœur de laitue</div><div class="col-md-2 text-end">55€</div></div>
+        <div class="row"><div class="col-md-10">Croque-Monsieur - Au jambon de veau, pommes frites maison et cœur de laitue</div><div class="col-md-2 text-end">55€</div></div>
+        <hr>
+        <h6 class="text-light">Entrées</h6>
+        <div class="row"><div class="col-md-10">Artichaut poivrade en salade cru et cuit, noisettes du Piémont et vinaigrette au pralin</div><div class="col-md-2 text-end">45€</div></div>
+        <div class="row"><div class="col-md-10">Avocat sur pain de campagne, coriandre, grenade, œuf poché bio</div><div class="col-md-2 text-end">38€</div></div>
+        <div class="row"><div class="col-md-10">Tomate de saison farcie à la burrata, glacée aux épices douces et coulis vert fumé</div><div class="col-md-2 text-end">32€</div></div>
+
+      </div>
+    </div>
+  </div>
+  <div class="accordion-item">
+    <h2 class="accordion-header" id="headingTwo">
+      <button class="accordion-button collapsed text-light bg-dark" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+        Les boissons chaudes
+      </button>
+    </h2>
+    <div id="collapseTwo" class="accordion-collapse collapse text-light bg-dark" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
+      <div class="accordion-body">
+        <div class="row"><div class="col-md-10">Espresso, Décaféiné</div><div class="col-md-2 text-end">12€</div></div>
+        <div class="row"><div class="col-md-10">Café américain</div><div class="col-md-2 text-end">16€</div></div>
+        <div class="row"><div class="col-md-10">Cappuccino, Café latte, Double espresso</div><div class="col-md-2 text-end">16€</div></div>
+        <div class="row"><div class="col-md-10">Thé, Infusion</div><div class="col-md-2 text-end">15€</div></div>
+        <div class="row"><div class="col-md-10">Chocolat chaud</div><div class="col-md-2 text-end">18€</div></div>
+        
+      </div>
+    </div>
+  </div>
+  <div class="accordion-item">
+    <h2 class="accordion-header" id="headingThree">
+      <button class="accordion-button collapsed text-light bg-dark" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+        Les boissons fraîches
+      </button>
+    </h2>
+    <div id="collapseThree" class="accordion-collapse collapse text-light bg-dark" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
+      <div class="accordion-body">
+         <div class="row"><div class="col-md-10">Jus de fruits frais 25cl - Orange, pamplemousse, citron</div><div class="col-md-2 text-end">16€</div></div>
+        <div class="row"><div class="col-md-10">Champagne Barons de Rothschild Brut Réserve Ritz</div><div class="col-md-2 text-end">28€</div></div>
+        <div class="row"><div class="col-md-10">Champagne Barons de Rothschild Blanc de blancs Réserve Ritz</div><div class="col-md-2 text-end">35€</div></div>
+        <div class="row"><div class="col-md-10">Champagne Barons de Rothschild Rosé Réserve Ritz</div><div class="col-md-2 text-end">35€</div></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+  </div>
+  <div class="tab-pane fade" id="diner" role="tabpanel">
+    <p>Etsy mixtape wayfarers, ethical wes anderson tofu before they sold out mcsweeney's organic lomo retro fanny pack lo-fi farm-to-table readymade. Messenger bag gentrify pitchfork tattooed craft beer, iphone skateboard locavore carles etsy salvia banksy hoodie helvetica. DIY synth PBR banksy irony. Leggings gentrify squid 8-bit cred pitchfork.</p>
+  </div>
+</div>
+</div>
+{% endblock %}

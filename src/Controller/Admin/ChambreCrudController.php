@@ -29,7 +29,7 @@ class ChambreCrudController extends AbstractCrudController
             TextareaField::new('descriptionLongue')->setMaxLength(20),
             TextField::new('photo'),
             MoneyField::new('prixJournalier')->setCurrency('EUR'),
-            DateTimeField::new('dateEnregistrement')->setFormat('d/M/Y  à H:m:s')
+            DateTimeField::new('dateEnregistrement')->setFormat('d/M/Y  à H:m:s')->hideOnForm()
         ];
     }
     public function createEntity(string $entityFqcn)
