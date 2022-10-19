@@ -5,6 +5,7 @@ namespace App\Controller;
 use DateTime;
 use App\Entity\Avis;
 use App\Form\AvisType;
+use App\Form\ContactType;
 use App\Repository\AvisRepository;
 use App\Repository\SliderRepository;
 use App\Repository\ChambreRepository;
@@ -79,6 +80,23 @@ class MainController extends AbstractController
             'categorie' => $categorie,
             'filtre' => $filtre
         ]);
+    }
+    #[Route('/contact', name: 'contact')]
+    public function contact(Request $globals, EntityManagerInterface $manager)
+    {
+        $form=$this->createForm(ContactType::class);
+        $form->handleRequest($globals);
+        if($form->isSubmitted() && $form->isValid())
+        {
+            $manager->flush();
+            $this->addFlash('success', "Le véhicule a bien été enregistré !");
+            
+            return $this->redirectToRoute('app_main');
+        }
+     return $this->renderForm('main/contact.html.twig', [
+
+        'contact' => $form,
+     ]);
     }
 
 }

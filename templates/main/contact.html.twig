@@ -1,0 +1,22 @@
+{% extends "base.html.twig" %}
+
+{% block title %} Contactez-Nous {% endblock %}
+{% block body %}
+<div class="container text-light my-4">
+
+{{ form_start(contact) }}
+<div class="row">
+    <div class="col-md-7">{{ form_row(contact.nom) }}</div>
+    <div class="col-md-5"> {{ form_row(contact.prenom) }} </div>
+</div>
+<div class="row">
+{{ form_row(contact.email) }}
+</div>
+<div class="row">
+{{ form_row(contact.content) }}
+</div>
+
+<button type="submit" class="btn btn-primary"> Envoyer </button>
+{{ form_end(contact) }}
+</div>
+{% endblock %}
