@@ -32,7 +32,7 @@ class CommandeCrudController extends AbstractCrudController
     {
         return [
             IdField::new('id')->hideOnForm(),
-            IdField::new('idMembre'),
+            // IdField::new('idMembre'),
             DateField::new('dateArrivee')->setFormat('d/M/Y'),
             DateField::new('dateDepart')->setFormat('d/M/Y'),
             TextField::new('nom', 'Nom'),
