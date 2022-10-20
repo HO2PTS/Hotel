@@ -26,7 +26,7 @@ class SliderCrudController extends AbstractCrudController
             IdField::new('id')->hideOnForm(),
             TextField::new('photo'),
             IntegerField::new('ordre'),
-            DateTimeField::new('dateEnregistrement')->setFormat('d/M/Y  à H:m:s')->hideOnForm(),
+            DateTimeField::new('dateEnregistrement')->setFormat('d/M/Y  à H:m:s'),
             AssociationField::new('chambre')->renderAsNativeWidget()
         ];
     }

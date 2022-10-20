@@ -42,7 +42,7 @@ class MembreCrudController extends AbstractCrudController
             TextField::new('password', 'Mot de passe')->setFormType(PasswordType::class)->onlyWhenCreating(),
             CollectionField::new('roles')->setTemplatePath('admin/field/roles.html.twig'),
             ChoiceField::new('civilite')->setChoices(['H'=>'homme', "F"=>"femme"]),
-            DateTimeField::new('dateEnregistrement')->setFormat('d/M/Y  à H:m:s')->hideOnForm(),
+            DateTimeField::new('dateEnregistrement')->setFormat('d/M/Y  à H:m:s')
 
         ];
     }

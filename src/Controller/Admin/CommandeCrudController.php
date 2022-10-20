@@ -40,7 +40,7 @@ class CommandeCrudController extends AbstractCrudController
             MoneyField::new('prixTotal')->setCurrency('EUR'),
             TextField::new('telephone', 'Téléphone'),
             TextField::new('email', 'Email'),
-            DateTimeField::new('dateEnregistrement')->setFormat('d/M/Y  à H:m:s')->hideOnForm()
+            DateTimeField::new('dateEnregistrement')->setFormat('d/M/Y  à H:m:s')
         ];
     }
     
